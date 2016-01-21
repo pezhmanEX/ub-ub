@@ -239,226 +239,118 @@ function create_config( )
     "all",
     "leave_ban"
     },
-    sudo_users = {118682430},--Sudo users
+    sudo_users = {164059631},--Sudo users
     disabled_channels = {},
     realm = {},--Realms Id
     moderation = {data = 'data/moderation.json'},
-    about_text = [[Creed bot 2.3
-    
-     Hello my Good friends ߘట搰
-     
-    ‼️ this bot is made by : @creed_is_dead
-   〰〰〰〰〰〰〰〰
-   ߚ頏ur admins are : 
-   ߔࠀsorblack_creed
-   ߔࠀamircc_creed
-   ߔࠀaria_creed
-   ߔࠀalireza_mah_creed 
-   〰〰〰〰〰〰〰〰
-  ♻️ You can send your Ideas and messages to Us By sending them into bots account by this command :
-   تمامی درخواست ها و همه ی انتقادات و حرفاتونو با دستور زیر بفرستین به ما
-   !feedback (your ideas and messages)
-]],
-    help_text_realm = [[
+    about_text = [[PokeRfaCe 
+    is a private bot for mrbangi 
+  ]],
+   help_text_realm = [[
 Realm Commands:
-
 !creategroup [Name]
-Create a group ߔʚوه جدیدی بسازید
-
+Create a group
 !createrealm [Name]
-Create a realm ߔʚوه مادر جدیدی بسازید
-
+Create a realm
 !setname [Name]
-Set realm name ߔ芘瘳م گروه مارد را تغییر بدهید
-
+Set realm name
 !setabout [GroupID] [Text]
 Set a group's about text
-در مورد  آن گروه توضیحاتی را بنویسید (ای دی گروه را بدهید )
-
 !setrules [GroupID] [Text]
 Set a group's rules
-در مورد آن گروه قوانینی تعیین کنید ( ای دی گروه را بدهید )
-
 !lock [GroupID] [setting]
 Lock a group's setting
-تنظیکات گروهی را قفل بکنید
-
 !unlock [GroupID] [setting]
 Unock a group's setting
-تنظیمات گروهی را از قفل در بیاورید 
-
 !wholist
-Get a list of members in group/realm  ߗ⊙䛌ست تمامی اعضا و ای دی شونو میگیرید
-
+Get a list of members in group/realm
 !who
-Get a file of members in group/realm  ߗ⊙䛌ست اعضا را در فایلی دریافت میکنید با مشخصاتشون ߗ⊊!type
+Get a file of members in group/realm
+!type
 Get group type
-در مورد نقش گروه بگیرید
-
 !kill chat [GroupID]
-Kick all memebers and delete group ⛔️⛔️
-⛔️تمامی اعضای گروه را حذف میکند ⛔️
-
+Kick all memebers and delete group
 !kill realm [RealmID]
-Kick all members and delete realm⛔️⛔️
-تمامی اعضای گروه مارد را حذف میکند
-
+Kick all members and delete realm
 !addadmin [id|username]
-Promote an admin by id OR username *Sudo onlyߒ밟⋊شخصی را به مقام ادمینی نصب میکنید ߒ늊!removeadmin [id|username]
-Demote an admin by id OR username *Sudo only❗️❗️
-❗️❗️ادمینی را با این دستور صلب مقام میکنید ❗️❗️
-
+Promote an admin by id OR username *Sudo only
+!removeadmin [id|username]
+Demote an admin by id OR username *Sudo only
 !list groups
-Get a list of all groupsߓ⊙䛌ست تمامی گروه هارو با مشخصاتی همچون سازنده یا .. .میدهد
-
+Get a list of all groups
 !list realms
-Get a list of all realmsߚ犙䛌ستی از گروه های مادر میدهد
-
+Get a list of all realms
 !log
-Grt a logfile of current group or realmߓ갟㊊با این دستور تمامی عملیاتی که روز ربات انجام گرفته با مشخصات داده میشود
-
+Grt a logfile of current group or realm
 !broadcast [text]
-Send text to all groups ✉️
-✉️ با این دستور به تمامی گروه ها متنی را همزمان میفرستید  .
-
-!br [group_id] [text]
-This command will send text to [group_id]✉️
-با این دستور میتونید به گروه توسط ربات متنی را بفرستید 
-
-You Can user both "!" & "/" for themߎ犙囌توانید از دو شکلک !  و / برای دادن دستورات استفاده کنید
-
-
+!broadcast Hello !
+Send text to all groups
 ]],
-    help_text = [[
-Creed bots Help for mods : ߘ芐lugins : ߔ늊1. banhammer ⭕️
-Help For Banhammerߑ犘تورات حذف و کنترل گروه
-
-!Kick @UserName ߘ슁nd You Can do It by Replay ߙ芘蘱ای حذف کسی به کار میره همچنین با ریپلی هم میشه 
-
-
-!Ban @UserName 〽️
-You Can Do It By Replayߑ슘蘱ای بن کردن شخصی استفاده میشه با ریپلی هم میشه 
-
-
-!Unban @UserName
-You Can Do it By Replayߘኚ阳یرو آنبن میکنید و با ریپلی هم میشه
-
-For Admins : ߑ犊!banall @UserName or (user_id)ߘꊹou Can do it By Replay ߑ䊘蘱ای بن از تمامی گروه ها استفاده میشه
-
-!unbanall ߆䕳er_Id߆䊘蘱ای انبن کردن شخص از همه ی گروه ها 
-
-〰〰〰〰〰〰〰〰〰〰
-2. GroupManager :ߔ銊!lock leave : ߚ犉f someone leaves the group he cant come back
-اگر کسی از گروه برود نمیتواند برگردد
-
-!Creategp "GroupName" ߙ芙ou Can CreateGroup With this commandߘኘ蘧 این دستور گروه میسازند که مخصوص ادمین ها و سازنده هست
-
-!lock member ߘ늙ou Can lock Your Group Members ߔ늘蘧 این دستور اجازه ورود به گروه رو تعیین میکنید
-
-!lock bots ߔ銎o bots can come in Your gp ߕ折瘲 آمدن ربات به گروه جلوگیری میکنید
-
-!lock name ❤️
-no one can change your gpnameߒ튘瘳م گروه را قفل میکنید
-
-!setfloodߘ㊓et the group flood control߈銙囌زان اسپم را در گروه تعیین میکنید
-
-!settings ❌
-Watch group settings
-تنظیمات فعلی گروه را میبینید
-
-!ownerߚ늷atch group owner
-آیدی سازنده گروه رو میبینید
-
-!setowner user_id❗️
-You can set someone to the group owner‼️
-برای گروه سازنده تعیین میکنید 
-
-!modlistߒatch Group modsߔ抙䛌ست مدیران گروه رو میبینید
-
-!lock fosh : 
-Lock using bad words in Group ߙꊘ瘲 دادن فحش در گروه جلوگیری میکند
-
-
-!lock link : 
-Lock Giving link in your group . ☑️
-از دادن لینک در گروه جلوگیری میکند
-
-
-!lock english : 
-Lock Speaking English in group ߆瘲 حرف زدن انگلیسی یا نوشتن انگلیسی در گروه جلوگیری کنید
-
-
-!lock tag : 
-Lock Tagging in Group with # and @ symbols ߓ슘瘲 تگ کردن ای دی یا کانال یا .. جلوگیری میکند
-
-!lock flood⚠️
-lock group floodߔʘ瘳پم دادن رو در گروه قدغا میکنید
-
-!unlock (bots-member-flood-photo-name-Arabic)✅
-Unlock Somethingߚ슙癅ه ی موارد بالا را با این دستور آزاد میسازید
-
-!rules ߆頯r !set rules߆犷atch group rules or set
-برای دیدن قوانین گروه و یا انتخاب قوانین 
-
-!about or !set about ߔ䊷atch about group or set about
-در مورد توضیحات گروه میدهد و یا توضیحات گروه رو تعیین کنید 
-
-!res @usernameߔ芓ee UserInfo©
-در مورد اسم و ای دی شخص بهتون میده 
-
-!who♦️
-Get Ids Chatߔꊘꙅامی ای دی های موجود در چت رو بهتون میده
-
-!log ߎ䊧et members id ♠️
-تمامی فعالیت های انجام یافته توسط شما و یا مدیران رو نشون میده
-
-!allߔ䊴his is like stats in a fileߔ芙癅ه ی اطلاعات گروه رو میده
-
-!newlink : ߔ㊒evokes the Invite link of Group. �
-لینک گروه رو عوض میکنه 
-
-!getlink : ߒኇet the Group link in Group .
-لینک گروه را در گروه نمایش میده
-
-!linkpv : ߔʔo give the invitation Link of group in Bots PV.
-برای دریافت لینک در پیوی استفاده میشه 
-〰〰〰〰〰〰〰〰
-Admins :®
-!addgp ߘou Can add the group to moderation.jsonߘኘ蘱ای آشنا کردن گروه به ربات توسط مدیران  اصلی ربات
-
-!remgp ߘou Can Remove the group from mod.json⭕️
-برای ناشناس کردن گروه برای ربات توسط مدیران اصلی
-
-!setgpowner (Gpid) user_id ⚫️
-from realm®®
-برای تعیین سازنده ای برای گروه 
-
-!addadmin ߔ抳et some one to global adminߔ芘蘱ای اضافه کردن ادمین اصلی به ربات 
-
-!removeadminߔ芲emove somone from global adminߔ銘蘱ای حذف کردن ادمین اصلی از ربات 
-
-〰〰〰〰〰〰〰〰〰〰〰
-3. Stats :©
-!stats creedbot (sudoers)✔️
-shows bt statsߔꊘ蘱ای دیدن آمار ربات کرید
-
-!statsߔ芳hows group statsߒ⊘♅ار گروه را نشان میده
-
-〰〰〰〰〰〰〰〰
-4. Feedback⚫️
-!feedback txtߔ뢗쯸end maseage to admins via botߔ芘蘱ای فرستادن هر حرف و انتقاد و ... توسط ربات به مدیریت ربات
-〰〰〰〰〰〰〰〰〰〰〰
-5. Tagall◻️
-!tagall txtߔ芷ill tag users©
-تگ کردن همه ی اعضای گروه و نوشتن پیام شما زیرش
-
-〰〰〰〰〰〰〰〰〰
-ߔ젭ore plugins 
-⚠️ We are Creeds ... ⚠️
-our channel : @creedantispam_channelߔ늚阧نال ما 
-You Can user both "!" & "/" for themߎ犙囌توانید از دو شکلک !  و / برای دادن دستورات استفاده کنید
-]]
-
+   help_text = [[
+Commands list :
+!kick [username|id]
+You can also do it by reply
+!ban [ username|id]
+You can also do it by reply
+!unban [id]
+You can also do it by reply
+!who
+Members list
+!modlist
+Moderators list
+!promote [username]
+Promote someone
+!demote [username]
+Demote someone
+!kickme
+Will kick user
+!about
+Group description
+!setphoto
+Set and locks group photo
+!setname [name]
+Set group name
+!rules
+Group rules
+!id
+return group id or user id
+!help
+!lock [member|name|bots|leave]	
+Locks [member|name|bots|leaveing] 
+!unlock [member|name|bots|leave]
+Unlocks [member|name|bots|leaving]
+!set rules <text>
+Set <text> as rules
+!set about <text>
+Set <text> as about
+!settings
+Returns group settings
+!newlink
+create/revoke your group link
+!link
+returns group link
+!owner
+returns group owner id
+!setowner [id]
+Will set id as owner
+!setflood [value]
+Set [value] as flood sensitivity
+!stats
+Simple message statistics
+!save [value] <text>
+Save <text> as [value]
+!get [value]
+Returns text of [value]
+!clean [modlist|rules|about]
+Will clear [modlist|rules|about] and set it to nil
+!res [username]
+returns user id
+"!res @username"
+!log
+will return group logs
+!banlist
+will return group ban list
+]],
   }
   serialize_to_file(config, './data/config.lua')
   print('saved config into ./data/config.lua')
