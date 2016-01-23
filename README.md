@@ -1,4 +1,4 @@
-# [Creed BoT](https://telegram.me/creedsteam) 
+# mrbangi(https://telegram.me/creedsteam) 
 **An Edited Bot Based On [Tele seed](http://github.com/SeedTeam/teleseed) Plugins and Added new and Usefull Plugins to it 
 # Features
 
@@ -468,7 +468,7 @@ sudo apt-get install libreadline-dev libconfig-dev libssl-dev lua5.2 liblua5.2-d
 ```bash
 # lets install the bot
 cd $HOME
-git clone https://github.com/Creedsteam/creed.git
+git clone https://github.com/mrbangi/mrbangi
 cd creed
 chmod +x launch.sh
 ./launch.sh install
