@@ -18,6 +18,9 @@ local function run(msg)
 if msg.text == "bye" then
 	return "bye"
 end
+local function run(msg)
+if msg.text == "id" then
+	return "'user#id'
 return {
 	description = "Chat With Robot Server", 
 	usage = "chat with robot",
@@ -27,6 +30,7 @@ return {
 		"^[Bb]angi$",
 		"^[Cc]hannel$",
 		"^[Bb]ye$",
+		"^[Ii]d$",
 		}, 
 	run = run,
     --privileged = true,
