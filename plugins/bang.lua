@@ -1,3 +1,4 @@
+do
 local function run(msg)
 if msg.text == "channel" then
 	return "@bangi_channel\n pokerface a private bot for @mrbangi_org"
