@@ -29,9 +29,8 @@ return {
     "/tagall [msg]."
   },
   patterns = {
-    "^[!/]tagall +(.+)$"
-      "^[!/@#$&][Tt](agall.*)$",
-  "^[Tt]agall (.*)$"
+      "^([!/@#$&][Tt]agall.*)$",
+  "^([Tt]agall (.*)$"
   },
   run = run
 }
