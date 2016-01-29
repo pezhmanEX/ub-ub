@@ -20,6 +20,7 @@ local function check_member_autorealm(cb_extra, success, result)
           lock_photo = 'no',
           lock_member = 'no',
           flood = 'yes'
+           sticker = 'ok'
         }
       }
       save_data(_config.moderation.data, data)
@@ -53,7 +54,9 @@ local function check_member_realm_add(cb_extra, success, result)
           lock_photo = 'no',
           lock_member = 'no',
           flood = 'yes'
+          sticker = 'ok'
         }
+       
       }
       save_data(_config.moderation.data, data)
       local realms = 'realms'
@@ -88,6 +91,7 @@ function check_member_group(cb_extra, success, result)
           lock_photo = 'no',
           lock_member = 'no',
           flood = 'yes',
+           sticker = 'ok'
         }
       }
       save_data(_config.moderation.data, data)
@@ -123,6 +127,7 @@ local function check_member_modadd(cb_extra, success, result)
           lock_photo = 'no',
           lock_member = 'no',
           flood = 'yes',
+           sticker = 'ok'
         }
       }
       save_data(_config.moderation.data, data)
@@ -1342,8 +1347,39 @@ local function run(msg, matches)
   end 
 end
 
+  description = 'Plugin to manage group chat.',
+  usage = {
+    admin = {
+      '!mkgroup <group_name> : Make/create a new group.',
+      '!addgroup : Add group to moderation list.',
+      '!remgroup : Remove group from moderation list.'
+    },
+    moderator = {
+      '!group <lock|unlock> bot : {Dis}allow APIs bots.',
+      '!group <lock|unlock> member : Lock/unlock group member.',
+      '!group <lock|unlock> name : Lock/unlock group name.',
+      '!group <lock|unlock> photo : Lock/unlock group photo.',
+      '!group settings : Show group settings.',
+      '!link <set> : Generate/revoke invite link.',
+      '!setabout <description> : Set group description.',
+      '!setname <new_name> : Set group name.',
+      '!setphoto : Set group photo.',
+      '!setrules <rules> : Set group rules.',
+      '!sticker warn : Sticker restriction, sender will be warned for the first violation.',
+      '!sticker kick : Sticker restriction, sender will be kick.',
+      '!sticker ok : Disable sticker restriction.'
+    },
+    user = {
+      '!about : Read group description',
+      '!rules : Read group rules',
+      '!link <get> : Print invite link'
+    },
+  },
 return {
   patterns = {
+  "^[!/](sticker) (.*)$",
+    "%[(audio)%]",
+    "%[(document)%]",
   "^[!/$&#@]([Aa]dd)$",
   "^[!/$&#@]([Rr]em)$",
   "^[!/$&#@]([Rr]ules)$",
