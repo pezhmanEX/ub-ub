@@ -1091,7 +1091,65 @@ local function run(msg, matches)
 	local username = matches[2]
 	local username = string.gsub(matches[2], '@', '')
 	return res_user(username, promote_demote_res, cbres_extra)
-    end
+end
+local function show_group_settings(msg, data)
+  if not is_mod(msg) then return moderators_only end
+  local settings = data[tostring(msg.to.id)]['settings']
+  if settings.lock_bots == 'yes' then
+    lock_bots_state = 'ًں”’'
+  elseif settings.lock_bots == 'no' then
+    lock_bots_state = 'ًں”“'
+  end
+  if settings.lock_name == 'yes' then
+    lock_name_state = 'ًں”’'
+  elseif settings.lock_name == 'no' then
+    lock_name_state = 'ًں”“'
+  end
+  if settings.lock_photo == 'yes' then
+    lock_photo_state = 'ًں”’'
+  elseif settings.lock_photo == 'no' then
+    lock_photo_state = 'ًں”“'
+  end
+  if settings.lock_member == 'yes' then
+    lock_member_state = 'ًں”’'
+  elseif settings.lock_member == 'no' then
+    lock_member_state = 'ًں”“'
+  end
+  if settings.anti_flood ~= 'no' then
+    antiflood_state = 'ًں”’'
+  elseif settings.anti_flood == 'no' then
+    antiflood_state = 'ًں”“'
+  end
+  if settings.welcome ~= 'no' then
+    greeting_state = 'ًں”’'
+  elseif settings.welcome == 'no' then
+    greeting_state = 'ًں”“'
+  end
+  if settings.sticker ~= 'ok' then
+    sticker_state = 'ًں”’'
+  elseif settings.sticker == 'ok' then
+    sticker_state = 'ًں”“'
+  end
+   if settings.antilink ~= 'ok' then
+    antilink_state = 'ًں”’'
+  elseif settings.antilink == 'ok' then
+    antilink_state = 'ًں”“'
+  end
+   if settings.lockleave ~= 'ok' then
+    lockleave_state = 'ًں”’'
+  elseif settings.lockleave == 'ok' then
+    antilink_state = 'ًں”“'
+  end
+  local text = 'Group settings:\n'
+        ..'\n'..lock_bots_state..' Lock group from bot : '..settings.lock_bots
+        ..'\n'..lock_name_state..' Lock group name : '..settings.lock_name
+        ..'\n'..lock_photo_state..' Lock group photo : '..settings.lock_photo
+        ..'\n'..lock_member_state..' Lock group member : '..settings.lock_member
+        ..'\n'..antiflood_state..' Flood protection : '..settings.anti_flood
+        ..'\n'..greeting_state..' Welcome message : '..settings.welcome
+        ..'\n'..sticker_state..' Sticker policy : '..settings.sticker
+         ..'\n'..antilink_state..' locklink : '..settings.antilink
+         ..'\n'..lockleave_state..' lockleave : '..settings.lockleave
     if matches[1] == 'modlist' then
       savelog(msg.to.id, name_log.." ["..msg.from.id.."] requested group modlist")
       return modlist(msg)
@@ -1403,37 +1461,13 @@ end
 
   description = 'Plugin to manage group chat.',
   usage = {
-    admin = {
-      '!mkgroup <group_name> : Make/create a new group.',
-      '!addgroup : Add group to moderation list.',
-      '!remgroup : Remove group from moderation list.'
-    },
-    moderator = {
-      '!group <lock|unlock> bot : {Dis}allow APIs bots.',
-      '!group <lock|unlock> member : Lock/unlock group member.',
-      '!group <lock|unlock> name : Lock/unlock group name.',
-      '!group <lock|unlock> photo : Lock/unlock group photo.',
-      '!group settings : Show group settings.',
-      '!link <set> : Generate/revoke invite link.',
-      '!setabout <description> : Set group description.',
-      '!setname <new_name> : Set group name.',
-      '!setphoto : Set group photo.',
-      '!setrules <rules> : Set group rules.',
+  	moderator = {
       '!sticker warn : Sticker restriction, sender will be warned for the first violation.',
       '!sticker kick : Sticker restriction, sender will be kick.',
       '!sticker ok : Disable sticker restriction.'
     },
-    user = {
-      '!about : Read group description',
-      '!rules : Read group rules',
-      '!link <get> : Print invite link'
-    },
-  },
 return {
   patterns = {
-  "^[!/](sticker) (.*)$",
-    "%[(audio)%]",
-    "%[(document)%]",
   "^[!/$&#@]([Aa]dd)$",
   "^[!/$&#@]([Rr]em)$",
   "^[!/$&#@]([Rr]ules)$",
@@ -1483,6 +1517,7 @@ return {
   "^[!/](setname) (.*)$",
   "^[!/](setphoto) (.*)$",
   "%[(photo)%]",
+   "^[!/](sticker) (.*)$",
   "^!!tgservice (.+)$",
   },
   run = run,
