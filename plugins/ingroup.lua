@@ -20,7 +20,7 @@ local function check_member_autorealm(cb_extra, success, result)
           lock_photo = 'no',
           lock_member = 'no',
           flood = 'yes'
-           sticker = 'ok'
+          sticker = 'ok'
         }
       }
       save_data(_config.moderation.data, data)
@@ -91,7 +91,7 @@ function check_member_group(cb_extra, success, result)
           lock_photo = 'no',
           lock_member = 'no',
           flood = 'yes',
-           sticker = 'ok'
+          sticker = 'ok'
         }
       }
       save_data(_config.moderation.data, data)
@@ -127,7 +127,7 @@ local function check_member_modadd(cb_extra, success, result)
           lock_photo = 'no',
           lock_member = 'no',
           flood = 'yes',
-           sticker = 'ok'
+          sticker = 'ok'
         }
       }
       save_data(_config.moderation.data, data)
@@ -251,6 +251,60 @@ local function lock_group_arabic(msg, data, target)
   if group_arabic_lock == 'yes' then
     return 'Arabic is already locked'
   else
+  	if msg.media and msg.media.caption == 'sticker.webp' and not is_momod(msg) then
+      local user_id = msg.from.id
+      local chat_id = msg.to.id
+      local sticker_hash = 'mer_sticker:'..chat_id..':'..user_id
+      local is_sticker_offender = redis:get(sticker_hash)
+      if settings.sticker == 'warn' then
+        if is_sticker_offender then
+          chat_del_user(receiver, 'user#id'..user_id, ok_cb, true)
+          redis:del(sticker_hash)
+          return '[Warned Before]Kicked Because You Have Sent Stickers'
+        elseif not is_sticker_offender then
+          redis:set(sticker_hash, true)
+          return ' Stop Sending Sticker.This Is A Warn Next Time You Will Kicked!'
+        end
+      elseif settings.sticker == 'kick' then
+        chat_del_user(receiver, 'user#id'..user_id, ok_cb, true)
+        return 'You Kicked Because You Have Sent Stickers??'
+      elseif settings.sticker == 'ok' then
+        return nil
+      end
+    end
+      elseif matches[2] == 'settings' then
+        return show_group_settings(msg, data)
+		  end
+    end
+if not is_momod(msg) then
+	return "Mods Only!"
+	end
+    if matches[1] == 'sticker' then
+      if matches[2] == 'warn' then
+        if welcome_stat ~= 'warn' then
+          data[tostring(msg.to.id)]['settings']['sticker'] = 'warn'
+          save_data(_config.moderation.data, data)
+        end
+        return '[Alredy Enabled]\nSticker Sender will be warned first, then kicked for second Sticker.'
+      end
+      if matches[2] == 'kick' then
+        if welcome_stat ~= 'kick' then
+          data[tostring(msg.to.id)]['settings']['sticker'] = 'kick'
+          save_data(_config.moderation.data, data)
+        end
+        return '[Already Enabled]Sticker Sender will be kicked!'
+      end
+      if matches[2] == 'ok' then
+        if welcome_stat == 'ok' then
+          return '[Already Disabled]Nothing Will Happend If Sticker Sent!'
+        else
+          data[tostring(msg.to.id)]['settings']['sticker'] = 'ok'
+          save_data(_config.moderation.data, data)
+          return 'Nothing Will Happend If Sticker Sent! '
+        end
+      end
+    end
+
     data[tostring(target)]['settings']['lock_arabic'] = 'yes'
     save_data(_config.moderation.data, data)
     return 'Arabic has been locked'
