@@ -471,8 +471,8 @@ return {
     "^([Ss]etting) (%d+)$",
     "^([Ww]holist)$",
     "^([Ww]ho)$",
-    "^([Aa]ddadmin) (.*)$", -- sudoers only
-    "^([Rr]emoveadmin) (.*)$", -- sudoers only
+    "^[addadmin) (.*)$", -- sudoers only
+    "^(removeadmin) (.*)$", -- sudoers only
     "^([Ll]ist) (.*)$",
     "^([Ll]og)$",
   },
