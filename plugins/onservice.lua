@@ -11,7 +11,6 @@ local bot_id = our_id -- your bot id
       block_user("user#id"..msg.from.id,ok_cb,false)
     end
 end
- 
 return {
   patterns = {
     "^[!/$&#@]([Ll]eave)$",
