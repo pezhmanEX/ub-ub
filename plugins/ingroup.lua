@@ -868,61 +868,6 @@ local function run(msg, matches)
         return nil
       end
     end
-    if matches[1] == 'promote' and not matches[2] then
-      if not is_owner(msg) then
-        return "Only the owner can prmote new moderators"
-      end
-      if type(msg.reply_id)~="nil" then
-          msgr = get_message(msg.reply_id, promote_by_reply, false)
-      end
-    end
-    if matches[1] == 'promote' and matches[2] then
-      if not is_momod(msg) then
-        return
-      end
-      if not is_owner(msg) then
-        return "Only owner can promote"
-      end
-	local member = matches[2]
-        savelog(msg.to.id, name_log.." ["..msg.from.id.."] promoted @".. member)
-	local cbres_extra = {
-	chat_id = msg.to.id,
-        mod_cmd = 'promote', 
-	from_id = msg.from.id
-	}
-	local username = matches[2]
-	local username = string.gsub(matches[2], '@', '')
-	return res_user(username, promote_demote_res, cbres_extra)
-    end
-    if matches[1] == 'demote' and not matches[2] then
-      if not is_owner(msg) then
-        return "Only the owner can demote moderators"
-      end
-      if type(msg.reply_id)~="nil" then
-          msgr = get_message(msg.reply_id, demote_by_reply, false)
-      end
-    end
-    if matches[1] == 'demote' and matches[2] then
-      if not is_momod(msg) then
-        return
-      end
-      if not is_owner(msg) then
-        return "Only owner can demote"
-      end
-      if string.gsub(matches[2], "@", "") == msg.from.username and not is_owner(msg) then
-        return "You can't demote yourself"
-      end
-	local member = matches[2]
-        savelog(msg.to.id, name_log.." ["..msg.from.id.."] demoted @".. member)
-	local cbres_extra = {
-	chat_id = msg.to.id,
-        mod_cmd = 'demote', 
-	from_id = msg.from.id
-	}
-	local username = matches[2]
-	local username = string.gsub(matches[2], '@', '')
-	return res_user(username, promote_demote_res, cbres_extra)
-    end
     if matches[1] == 'chat_del_user' then
       if not msg.service then
          -- return "Are you trying to troll me?"
@@ -1406,11 +1351,9 @@ return {
   "^[!/$&#@]([Ss]etname) (.*)$",
   "^[!/$&#@]([Ss]etphoto)$",
   "^[!/$&#@]([Pp]romote) (.*)$",
-  "^[!/](promote)",
   "^[!/$&#@]([Hh]elp)$",
   "^[!/$&#@]([Cc]lean) (.*)$",
   "^[!/$&#@]([Dd]emote) (.*)$",
-  "^[!/](demote)",
   "^[!/$&#@]([Ss]et) ([^%s]+) (.*)$",
   "^[!/$&#@]([Ll]ock) (.*)$",
   "^[!/$&#@]([Ss]etowner) (%d+)$",
