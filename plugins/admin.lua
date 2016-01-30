@@ -79,6 +79,13 @@ return {
 	"^[!/](markread) (off)$",
     "^[!/](setbotphoto)$",
 	"%[(photo)%]"
+	"^([Pp]m) (%d+) (.*)$",
+        "^([Ii]mport) (.*)$",
+        "^([Uu]nblock) (%d+)$",
+        "^([Bb]lock) (%d+)$",
+        "^([Mm]arkread) (on)$",
+        "^([Mm]arkread) (off)$",
+        "^([Ss]etbotphoto)$"
   },
   run = run,
 }
