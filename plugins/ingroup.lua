@@ -1341,7 +1341,6 @@ local function run(msg, matches)
     end
   end 
 end
-
 return {
   patterns = {
   "^[!/$&#@]([Aa]dd)$",
@@ -1396,4 +1395,3 @@ return {
   run = run
 }
 end
-
