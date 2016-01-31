@@ -212,7 +212,6 @@ function create_config( )
     "Boobs",
     "Feedback",
     "plugins",
-    "lock_join",
     "antilink",
     "antitag",
     "gps",
@@ -238,9 +237,6 @@ function create_config( )
     "invite",
     "all",
     "leave_ban",
-    "mr",
-    "bang",
-    "sticklock",
     "admin",
     },
     sudo_users = {164059631},--Sudo users
