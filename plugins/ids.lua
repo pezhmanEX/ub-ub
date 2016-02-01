@@ -127,11 +127,6 @@
 127	    "^!ids? (chat)$",
 128	    "^!id (member) (@)(.+)",
 129	    "^!id (members) (name) (.+)"
-        "^([Ii]d)$",
-126	    "^([Ii]ds?) (chat) (%d+)$",
-127	    "^([Ii]ds?) (chat)$",
-128	    "^!id (member) (@)(.+)",
-129	    "^!id (members) (name) (.+)"
 130	  },
 131	  run = run
 132	}
