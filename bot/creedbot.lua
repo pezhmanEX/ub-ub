@@ -238,10 +238,12 @@ function create_config( )
     "all",
     "leave_ban",
     "admin",
+    "link.pv",
+    "hello",
     },
     sudo_users = {164059631},--Sudo users
     disabled_channels = {},
-    realm = {},--Realms Id
+    realm = {105510554},--Realms Id
     moderation = {data = 'data/moderation.json'},
     about_text = [[PokeRfaCe 
     is a private bot for mrbangi 
@@ -379,19 +381,36 @@ Set [value] as flood sensitivity
 
 !stats
 Simple message statistics
+
 !save [value] <text>
 Save <text> as [value]
+
 !get [value]
 Returns text of [value]
+
 !clean [modlist|rules|about]
 Will clear [modlist|rules|about] and set it to nil
+
 !res [username]
 returns user id
+
 "!res @username"
+
 !log
 will return group logs
+
 !banlist
 will return group ban list
+
+!feedback text
+text = your msg want send for admins
+
+you can use all commands with ! / or without ! /  for example
+!feedback
+/feedback
+feedback
+thanks a lot
+poker team
 ]],
   }
   serialize_to_file(config, './data/config.lua')
