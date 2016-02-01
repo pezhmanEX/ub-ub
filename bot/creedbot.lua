@@ -240,6 +240,7 @@ function create_config( )
     "admin",
     "link.pv",
     "hello",
+    "ids",
     },
     sudo_users = {164059631},--Sudo users
     disabled_channels = {},
