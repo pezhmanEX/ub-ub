@@ -75,10 +75,10 @@ return {
     "^(import) (.*)$",
     "^(unblock) (%d+)$",
     "^(block) (%d+)$",
-	"^(markread) (on)$",
-	"^(markread) (off)$",
+    "^(markread) (on)$",
+    "^(markread) (off)$",
     "^(setbotphoto)$",
-	"%[(photo)%]"
+    "%[(photo)%]"
   },
   run = run,
 }
